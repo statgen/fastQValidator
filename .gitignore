@@ -2,3 +2,4 @@ bin/
 obj/
 *~
 *.tgz
+test/testFile.txt
