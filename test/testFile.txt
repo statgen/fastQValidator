@@ -1,1 +1,0 @@
-../../../lib/fastq/test/testFile.txt

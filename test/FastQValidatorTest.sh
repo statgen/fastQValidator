@@ -1,9 +1,9 @@
-PATH_TO_EXE="../../bin"
+PATH_TO_EXE="../bin"
 
 ERROR=false
 
 # Test running on a non-fastq file
-$PATH_TO_EXE/fastQValidator --params --file ../FastQValidator.cpp > results/nonFastQFileResults.txt 2>&1
+$PATH_TO_EXE/fastQValidator --params --file ../src/FastQValidator.cpp > results/nonFastQFileResults.txt 2>&1
 
 
 # Run on test file that tests all types of errors detected by the
