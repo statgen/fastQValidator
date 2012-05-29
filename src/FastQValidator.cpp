@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2010  Regents of the University of Michigan
+ *  Copyright (C) 2010-2012  Regents of the University of Michigan
  *
  *   This program is free software: you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
@@ -38,6 +38,7 @@ int main(int argc, char ** argv)
    bool autoDetect = false;
    bool ignoreErrors = false;
    bool baseComposition = false;
+   bool avgQual = false;
    bool quiet = false;
    bool params = false;
    bool disableSeqIDCheck = false;
@@ -45,6 +46,7 @@ int main(int argc, char ** argv)
    BEGIN_LONG_PARAMETERS(longParameterList)
       LONG_STRINGPARAMETER("file", &filename)
       LONG_PARAMETER("baseComposition", &baseComposition)
+      LONG_PARAMETER("avgQual", &avgQual)
       LONG_PARAMETER("disableSeqIDCheck", &disableSeqIDCheck)
       LONG_PARAMETER("quiet", &quiet)
       LONG_PARAMETER("params", &params)
@@ -133,6 +135,7 @@ int main(int argc, char ** argv)
       std::cout << "\t--ignoreErrors       : Ignore all errors (same as printableErrors = 0)\n";
       std::cout << "\t                       overwrites the printableErrors option.\n";
       std::cout << "\t--baseComposition    : Print the Base Composition Statistics.\n";
+      std::cout << "\t--avgQual            : Print the average phred quality per cycle & overall average quality.\n";
       std::cout << "\t--disableSeqIDCheck  : Disable the unique sequence identifier check.\n";
       std::cout << "\t                       Use this option to save memory since the sequence id\n";
       std::cout << "\t                       check uses a lot of memory.\n";
@@ -170,7 +173,7 @@ int main(int argc, char ** argv)
 
    validator.setMaxErrors(maxErrors);
 
-   FastQStatus::Status status = validator.validateFastQFile(filename, baseComposition, myBaseType);
+   FastQStatus::Status status = validator.validateFastQFile(filename, baseComposition, myBaseType, avgQual);
 
    if(!quiet)
    {

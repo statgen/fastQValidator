@@ -80,7 +80,7 @@ then
 fi
 
 # Run on the same test file, but do not print any messages, print baseComp.
-$PATH_TO_EXE/fastQValidator --params --file testFile.txt --minReadLen 10 --baseSpace --quiet --baseComposition > results/runResultsBaseCompNoMessages.txt 2>&1
+$PATH_TO_EXE/fastQValidator --params --file testFile.txt --minReadLen 10 --baseSpace --quiet --baseComposition --avgQual > results/runResultsBaseCompNoMessages.txt 2>&1
 diff results/runResultsBaseCompNoMessages.txt expectedResults/ExpectedResultsBaseCompNoMessages.txt
 if [ $? -ne 0 ]
 then
