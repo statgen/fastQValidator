@@ -72,7 +72,7 @@ then
 fi
 
 # Run on the same test file, but ignore all errors, do not print baseComp.
-$PATH_TO_EXE/fastQValidator --params --file testFile.txt --minReadLen 10 --baseSpace --ignoreErrors > results/runResultsNoBaseCompNoErrors.txt 2>&1
+$PATH_TO_EXE/fastQValidator --params --file testFile.txt --minReadLen 10 --baseSpace --ignoreErrors --avgQual > results/runResultsNoBaseCompNoErrors.txt 2>&1
 diff results/runResultsNoBaseCompNoErrors.txt expectedResults/ExpectedResultsNoBaseCompNoErrors.txt
 if [ $? -ne 0 ]
 then
