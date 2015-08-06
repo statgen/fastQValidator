@@ -42,12 +42,14 @@ int main(int argc, char ** argv)
    bool quiet = false;
    bool params = false;
    bool disableSeqIDCheck = false;
+   bool interleaved = false;
 
    BEGIN_LONG_PARAMETERS(longParameterList)
       LONG_STRINGPARAMETER("file", &filename)
       LONG_PARAMETER("baseComposition", &baseComposition)
       LONG_PARAMETER("avgQual", &avgQual)
       LONG_PARAMETER("disableSeqIDCheck", &disableSeqIDCheck)
+      LONG_PARAMETER("interleaved", &interleaved)
       LONG_PARAMETER("quiet", &quiet)
       LONG_PARAMETER("params", &params)
       LONG_INTPARAMETER("minReadLen", &minReadLength)
@@ -139,6 +141,10 @@ int main(int argc, char ** argv)
       std::cout << "\t--disableSeqIDCheck  : Disable the unique sequence identifier check.\n";
       std::cout << "\t                       Use this option to save memory since the sequence id\n";
       std::cout << "\t                       check uses a lot of memory.\n";
+      std::cout << "\t--interleaved        : Validate consequtive reads have the same sequence identifier\n";
+      std::cout << "\t                       (only allowed difference is 1/2, but not required) and validate\n";
+      std::cout << "\t                       that otherwise reads have unique sequence identifiers.\n";
+      std::cout << "\t                       Cannot be used if '--disableSeqIDCheck' is specified.\n";
       std::cout << "\t--params             : Print the parameter settings.\n";
       std::cout << "\t--quiet              : Suppresses the display of errors and summary statistics.\n";
       std::cout << "\t                       Does not affect the printing of Base Composition Statistics.\n";
@@ -150,7 +156,7 @@ int main(int argc, char ** argv)
       std::cout << std::endl;
 
       std::cout << "  Usage:" << std::endl;
-      std::cout << "\t./fastQValidator --file <fileName> [--minReadLen <minReadLen>] [--maxErrors <numErrors>] [--printableErrors <printableErrors>|--ignoreErrors] [--baseComposition] [--disableSeqIDCheck] [--quiet] [--baseSpace|--colorSpace|--auto] [--params]\n\n";
+      std::cout << "\t./fastQValidator --file <fileName> [--minReadLen <minReadLen>] [--maxErrors <numErrors>] [--printableErrors <printableErrors>|--ignoreErrors] [--baseComposition] [--disableSeqIDCheck] [--interleaved] [--quiet] [--baseSpace|--colorSpace|--auto] [--params]\n\n";
       std::cout << "  Examples:" << std::endl;
       std::cout << "\t../fastQValidator --file testFile.txt\n";
       std::cout << "\t../fastQValidator --file testFile.txt --minReadLen 10 --baseSpace --printableErrors 100\n";
@@ -169,6 +175,20 @@ int main(int argc, char ** argv)
    if(disableSeqIDCheck)
    {
        validator.disableSeqIDCheck();
+   }
+
+   if(interleaved)
+   {
+       validator.interleaved();
+   }
+
+   if(interleaved && disableSeqIDCheck)
+   {
+       if(!quiet)
+       {
+           std::cout << "ERROR: --interleaved and --disableSeqIDCheck cannot both be specified.\n";
+       }
+       return(-1);
    }
 
    validator.setMaxErrors(maxErrors);

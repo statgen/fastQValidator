@@ -1,0 +1,5 @@
+ERROR on Line 21: Interleaved: consecutive reads do not have matching sequence identifiers: 3/3 and 3/1
+ERROR on Line 37: Interleaved: consecutive reads do not have matching sequence identifiers: 5 and 5/1
+Finished processing interleaved.fastq with 56 lines containing 14 sequences.
+There were a total of 2 errors.
+Returning: 1 : FASTQ_INVALID

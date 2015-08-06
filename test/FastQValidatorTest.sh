@@ -122,6 +122,14 @@ then
     ERROR=true
 fi
 
+# Test on interleaved file
+$PATH_TO_EXE/fastQValidator --file interleaved.fastq --interleaved > results/runResultsInterleaved.txt 2>&1
+diff results/runResultsInterleaved.txt expectedResults/ExpectedResultsInterleaved.txt
+if [ $? -ne 0 ]
+then
+    ERROR=true
+fi
+
 if($ERROR == true)
 then
   exit 1
