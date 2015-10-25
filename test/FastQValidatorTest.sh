@@ -15,6 +15,38 @@ then
     ERROR=true
 fi
 
+# Run on gz file
+$PATH_TO_EXE/fastQValidator --params --file testFile.txt.gz --minReadLen 10 --auto --printableErrors 100 --baseComposition > results/runResultsGZ.txt 2>&1
+diff results/runResultsGZ.txt expectedResults/ExpectedResultsAutoDetectGZ.txt
+if [ $? -ne 0 ]
+then
+    ERROR=true
+fi
+
+# Run on bgzf file
+$PATH_TO_EXE/fastQValidator --params --file testFile.txt.bgz --minReadLen 10 --auto --printableErrors 100 --baseComposition > results/runResultsBGZ.txt 2>&1
+diff results/runResultsBGZ.txt expectedResults/ExpectedResultsAutoDetectBGZ.txt
+if [ $? -ne 0 ]
+then
+    ERROR=true
+fi
+
+# Run on bgzf file with no eof causing failure
+$PATH_TO_EXE/fastQValidator --params --file testFile.txt.noeof.bgz --minReadLen 10 --auto --printableErrors 100 --baseComposition > results/runResultsBGZnoeofFail.txt 2>&1
+diff results/runResultsBGZnoeofFail.txt expectedResults/ExpectedResultsAutoDetectBGZnoeofFail.txt
+if [ $? -ne 0 ]
+then
+    ERROR=true
+fi
+
+# Run on bgzf file with no eof but skipping the eof check
+$PATH_TO_EXE/fastQValidator --noeof --params --file testFile.txt.noeof.bgz --minReadLen 10 --auto --printableErrors 100 --baseComposition > results/runResultsBGZnoeof.txt 2>&1
+diff results/runResultsBGZnoeof.txt expectedResults/ExpectedResultsAutoDetectBGZnoeof.txt
+if [ $? -ne 0 ]
+then
+    ERROR=true
+fi
+
 # Run on the same file but do not check for unique sequence id.
 $PATH_TO_EXE/fastQValidator --params --file testFile.txt --minReadLen 10 --auto --printableErrors 100 --baseComposition --disableSeqIDCheck > results/runResultsDisableSeqID.txt 2>&1
 diff results/runResultsDisableSeqID.txt expectedResults/ExpectedResultsDisableSeqID.txt

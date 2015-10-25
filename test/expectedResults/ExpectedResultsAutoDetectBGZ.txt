@@ -1,8 +1,8 @@
 
 Input Parameters
- --file [testFile.txt], --baseComposition [ON], --avgQual, --disableSeqIDCheck,
-                --interleaved, --noeof, --quiet, --params [ON],
-                --minReadLen [10], --maxErrors [-1]
+ --file [testFile.txt.bgz], --baseComposition [ON], --avgQual,
+                --disableSeqIDCheck, --interleaved, --noeof, --quiet,
+                --params [ON], --minReadLen [10], --maxErrors [-1]
    Space Type : --baseSpace, --colorSpace, --auto [ON]
        Errors : --ignoreErrors, --printableErrors [100]
 
@@ -84,6 +84,6 @@ Read Index	%A	%C	%G	%T	%N	Total Reads At Index
         24     0.00    0.00    0.00    0.00  100.00	2
         25     0.00    0.00  100.00    0.00    0.00	2
 
-Finished processing testFile.txt with 95 lines containing 21 sequences.
+Finished processing testFile.txt.bgz with 95 lines containing 21 sequences.
 There were a total of 48 errors.
 Returning: 1 : FASTQ_INVALID

@@ -1,0 +1,11 @@
+
+Input Parameters
+ --file [testFile.txt.noeof.bgz], --baseComposition [ON], --avgQual,
+                --disableSeqIDCheck, --interleaved, --noeof [ON], --quiet,
+                --params [ON], --minReadLen [10], --maxErrors [-1]
+   Space Type : --baseSpace, --colorSpace, --auto [ON]
+       Errors : --ignoreErrors, --printableErrors [100]
+
+BGZF EOF marker is missing in testFile.txt.noeof.bgz
+ERROR: Failed to open file: testFile.txt.noeof.bgz
+Returning: 3 : FASTQ_OPEN_ERROR

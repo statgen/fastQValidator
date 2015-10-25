@@ -1,7 +1,7 @@
 
 Input Parameters
  --file [testFile.txt], --baseComposition [ON], --avgQual,
-                --disableSeqIDCheck [ON], --interleaved, --quiet,
+                --disableSeqIDCheck [ON], --interleaved, --noeof, --quiet,
                 --params [ON], --minReadLen [10], --maxErrors [-1]
    Space Type : --baseSpace, --colorSpace, --auto [ON]
        Errors : --ignoreErrors, --printableErrors [100]

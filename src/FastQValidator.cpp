@@ -21,6 +21,7 @@
 #include "StringHash.h"
 #include "Parameters.h"
 #include "FastQFile.h"
+#include "BgzfFileType.h"
 
 int main(int argc, char ** argv)
 {   
@@ -40,6 +41,7 @@ int main(int argc, char ** argv)
    bool baseComposition = false;
    bool avgQual = false;
    bool quiet = false;
+   bool noeof = false;
    bool params = false;
    bool disableSeqIDCheck = false;
    bool interleaved = false;
@@ -50,6 +52,7 @@ int main(int argc, char ** argv)
       LONG_PARAMETER("avgQual", &avgQual)
       LONG_PARAMETER("disableSeqIDCheck", &disableSeqIDCheck)
       LONG_PARAMETER("interleaved", &interleaved)
+      LONG_PARAMETER("noeof", &noeof)
       LONG_PARAMETER("quiet", &quiet)
       LONG_PARAMETER("params", &params)
       LONG_INTPARAMETER("minReadLen", &minReadLength)
@@ -99,6 +102,14 @@ int main(int argc, char ** argv)
       myBaseType = BaseAsciiMap::UNKNOWN;
       // Set autoDetect
       autoDetect = true;
+   }
+
+   // If no eof block is required for a bgzf file, set the bgzf file type to 
+   // not look for it.
+   if(noeof)
+   {
+       // Set that the eof block is not required.
+       BgzfFileType::setRequireEofBlock(false);
    }
 
    // DO not print status if set to quiet.
