@@ -152,6 +152,7 @@ int main(int argc, char ** argv)
       std::cout << "\t--disableSeqIDCheck  : Disable the unique sequence identifier check.\n";
       std::cout << "\t                       Use this option to save memory since the sequence id\n";
       std::cout << "\t                       check uses a lot of memory.\n";
+      std::cout << "\t--noeof              : Disable checking that the eof block is present in gzipped files\n.";
       std::cout << "\t--interleaved        : Validate consequtive reads have the same sequence identifier\n";
       std::cout << "\t                       (only allowed difference is 1/2, but not required) and validate\n";
       std::cout << "\t                       that otherwise reads have unique sequence identifiers.\n";
