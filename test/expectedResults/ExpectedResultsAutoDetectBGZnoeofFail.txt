@@ -1,7 +1,7 @@
 
 Input Parameters
  --file [testFile.txt.noeof.bgz], --baseComposition [ON], --avgQual,
-                --disableSeqIDCheck, --interleaved, --noeof [ON], --quiet,
+                --disableSeqIDCheck, --interleaved, --noeof, --quiet,
                 --params [ON], --minReadLen [10], --maxErrors [-1]
    Space Type : --baseSpace, --colorSpace, --auto [ON]
        Errors : --ignoreErrors, --printableErrors [100]
