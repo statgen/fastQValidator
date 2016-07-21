@@ -8,4 +8,5 @@ Input Parameters
 
 BGZF EOF marker is missing in testFile.txt.noeof.bgz
 ERROR: Failed to open file: testFile.txt.noeof.bgz
+Sequence Type : Unknown
 Returning: 3 : FASTQ_OPEN_ERROR

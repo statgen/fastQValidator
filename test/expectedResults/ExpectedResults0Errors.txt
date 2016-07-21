@@ -13,4 +13,5 @@ Read Index	%A	%C	%G	%T	%N	Total Reads At Index
 Finished processing testFile.txt with 0 lines containing 0 sequences.
 There were a total of 0 errors.
 ERROR: No FastQSequences in the file.
+Sequence Type : Base Space
 Returning: 6 : FASTQ_NO_SEQUENCE_ERROR

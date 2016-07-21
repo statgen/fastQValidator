@@ -39,4 +39,5 @@ Read Index	Average Quality
 Overall Average Phred Quality = 50.40
 Finished processing testFile.txt with 95 lines containing 21 sequences.
 There were a total of 48 errors.
+Sequence Type : Base Space
 Returning: 1 : FASTQ_INVALID

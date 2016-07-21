@@ -273,4 +273,5 @@ Read Index	%A	%C	%G	%T	%N	Total Reads At Index
 
 Finished processing testFile.txt with 95 lines containing 21 sequences.
 There were a total of 235 errors.
+Sequence Type : Color Space
 Returning: 1 : FASTQ_INVALID

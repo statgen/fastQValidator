@@ -56,4 +56,5 @@ ERROR on Line 95: Reached the end of the file without a '+' line.
 ERROR on Line 95: Incomplete Sequence, missing Quality String.
 Finished processing testFile.txt with 95 lines containing 21 sequences.
 There were a total of 48 errors.
+Sequence Type : Base Space
 Returning: 1 : FASTQ_INVALID

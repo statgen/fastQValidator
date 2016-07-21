@@ -38,4 +38,5 @@ Read Index	%A	%C	%G	%T	%N	Total Reads At Index
 
 Finished processing testFile.txt with 11 lines containing 3 sequences.
 There were a total of 10 errors.
+Sequence Type : Base Space
 Returning: 1 : FASTQ_INVALID

@@ -209,8 +209,25 @@ int main(int argc, char ** argv)
 
    if(!quiet)
    {
-      std::cout << "Returning: " << status << " : " << FastQStatus::getStatusString(status)
-                << std::endl;
+       std::cout << "Sequence Type : ";
+       BaseAsciiMap::SPACE_TYPE spaceType = validator.getSpaceType();
+       switch (spaceType)
+       {
+           case BaseAsciiMap::BASE_SPACE:
+               // base space.
+               std::cout << "Base Space\n";
+               break;
+           case BaseAsciiMap::COLOR_SPACE:
+               // color space.
+               std::cout << "Color Space\n";
+               break;
+           default:
+               // Unknown map type, zero the pointer.
+               std::cout << "Unknown\n";
+               break;
+       }
+       std::cout << "Returning: " << status << " : " << FastQStatus::getStatusString(status)
+                 << std::endl;
    }
 
    return(status);
