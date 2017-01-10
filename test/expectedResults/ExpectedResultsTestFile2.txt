@@ -1,0 +1,3 @@
+Finished processing testFile2.txt with 20 lines containing 4 sequences.
+There were a total of 0 errors.
+Returning: 0 : FASTQ_SUCCESS

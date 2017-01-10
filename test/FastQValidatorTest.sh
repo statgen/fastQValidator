@@ -162,6 +162,18 @@ then
     ERROR=true
 fi
 
+# Test extra empty lines at the end of the file
+$PATH_TO_EXE/fastQValidator --file testFile2.txt > results/runResultsTestFile2.txt 2>&1
+if [ $? -ne 0 ]
+then
+    ERROR=true
+fi
+diff results/runResultsTestFile2.txt expectedResults/ExpectedResultsTestFile2.txt
+if [ $? -ne 0 ]
+then
+    ERROR=true
+fi
+
 if($ERROR == true)
 then
   exit 1

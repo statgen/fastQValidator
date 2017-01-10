@@ -1,0 +1,21 @@
+@Valid with comment
+ACTGNactngnactg
++
+!#"$%&'()*+,-./
+@Valid1 with comment
+ACTGACTNactngaac
++
+0123456789:;<=>
+@
+@Valid3
+ACTGACTN
+actngACTGACTNactng
++
+LMNOPQRSTUVWXYZ
+[\]^_'abcde
+@Valid4
+ACTGACTNactng
+ACTGACTNactng
++
+fghijklmnopqrstuvwxyz{|}~~
+
