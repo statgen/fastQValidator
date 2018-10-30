@@ -129,7 +129,7 @@ int main(int argc, char ** argv)
       std::cout << std::endl << std::endl;
 
       std::cout << "  Required Parameters:" << std::endl;
-      std::cout << "\t--file  :  FastQ filename with path to be prorcessed.\n";
+      std::cout << "\t--file  :  FastQ filename with path to be processed.\n";
       std::cout << std::endl;
 
       std::cout << "  Optional Parameters:" << std::endl;
